@@ -1,0 +1,2 @@
+user name for phpmyadmin is "root"
+password is "raspberry"
