@@ -56,7 +56,7 @@ path {
 </style>
 <body>
 
-<h1> "This is a header" </h1>
+<center><h1> "This is a header" </h1></center>
 
 <!-- load the d3.js library -->    
 <!--<script src="http://d3js.org/d4.v3.min.js"></script>-->
