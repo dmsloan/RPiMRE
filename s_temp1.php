@@ -110,7 +110,7 @@ data.forEach(function(d) {
 // Scale the range of the data
 x.domain(d3.extent(data, function(d) { return d.dtg; }));
 //y.domain([70, d3.max(data, function(d) { return d.temperature; })]);
-y.domain([d3.min(data, function(d) { return d.temperature; }), d3.max(data, function(d) { return d.temperature; })]);
+y.domain([d3.min(data, function(d) { return d.temperature; })-5, d3.max(data, function(d) { return d.temperature; })]);
 
 // Add the valueline path.
 svg.append("path")
