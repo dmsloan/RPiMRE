@@ -56,7 +56,7 @@ path {
 </style>
 <body>
 
-<center><h1> Home office temperature monitor </h1></center>
+<center><h1> Home office temperature</h1></center>
 
 <!-- load the d3.js library -->    
 <!--<script src="http://d3js.org/d4.v3.min.js"></script>-->
@@ -128,4 +128,5 @@ svg.append("g")
 	.call(yAxis);
 
 </script>
+<center><h3> Last temperature read </h3></center>
 </body>
