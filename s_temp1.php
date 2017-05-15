@@ -13,7 +13,7 @@ try {
        SELECT  `dtg`, `temperature`
        FROM  `temperature`
        ORDER BY `dtg` DESC
-       LIMIT 0,8000
+       LIMIT 0,500
     ");
     $sth->execute();
 
@@ -128,5 +128,5 @@ svg.append("g")
 	.call(yAxis);
 
 </script>
-<center><h3> Last temperature read </h3></center>
+<center><h3> Last temperature read $json_data[2] <?php echo $result[3] . " " . count($result) . end($result) . key($result) ; ?></h3></center>
 </body>
