@@ -13,7 +13,7 @@ try {
        SELECT  `dtg`, `temperature`
        FROM  `temperature`
        ORDER BY `dtg` DESC
-       LIMIT 0,500
+       LIMIT 0,8000
     ");
     $sth->execute();
 
