@@ -110,7 +110,7 @@ data.forEach(function(d) {
 // Scale the range of the data
 x.domain(d3.extent(data, function(d) { return d.dtg; }));
 //y.domain([70, d3.max(data, function(d) { return d.temperature; })]);
-y.domain([d3.min(data, function(d) { return d.temperature; })-5, d3.max(data, function(d) { return d.temperature; })]);
+y.domain([d3.min(data, function(d) { return d.temperature; })-2, d3.max(data, function(d) { return d.temperature; })]);
 
 // Add the valueline path.
 svg.append("path")
@@ -128,5 +128,5 @@ svg.append("g")
 	.call(yAxis);
 
 </script>
-<center><h3> Last temperature read $json_data[2] <?php echo $result[3] . " " . count($result) . end($result) . key($result) ; ?></h3></center>
+<center><h3> Last temperature read data[2] <?php echo data[2]?></h3></center>
 </body>
