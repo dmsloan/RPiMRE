@@ -128,5 +128,8 @@ svg.append("g")
 	.call(yAxis);
 
 </script>
-<center><h3> Last temperature read data[2] <?php echo data[2]?></h3></center>
+<center><h3 id="lastTemp"> </h3></center>
+<<script>
+    document.getElementById("lastTemp").innerHTML = data[0].temperature;
+</script>>
 </body>
