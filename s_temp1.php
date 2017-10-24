@@ -129,7 +129,7 @@ svg.append("g")
 
 </script>
 <center><h3 id="lastTemp"> </h3></center>
-<<script>
-    document.getElementById("lastTemp").innerHTML = data[0].temperature;
-</script>>
+<script>
+    document.getElementById("lastTemp").innerHTML = "Last temp " + data[0].temperature + " at " + data[0].dtg;
+</script>
 </body>
