@@ -11,10 +11,10 @@ try {
 
     /*** The SQL SELECT statement ***/
     $sth = $dbh->prepare("
-       SELECT  `TValue`, `T_Date`
+       SELECT  `TValue`, `dateTime`
        FROM  `TAB_CPU`
-       ORDER BY `T_Date` DESC
-       LIMIT 0,8000
+       ORDER BY `dateTime` DESC
+       LIMIT 0,8
     ");
     $sth->execute();
 
@@ -90,8 +90,8 @@ var yAxis = d3.svg.axis().scale(y)
 
 // Define the line
 var valueline = d3.svg.line()
-    .x(function(d) { return x(d.dtg); })
-    .y(function(d) { return y(d.temperature); });
+    .x(function(d) { return x(d.dateTime); })
+    .y(function(d) { return y(d.TValue); });
     
 // Adds the svg canvas
 var svg = d3.select("body")
@@ -103,17 +103,17 @@ var svg = d3.select("body")
               "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-<?php echo "data=".$json_data.";" ?>
+<?php echo "data="S.$json_data.";" ?>
 data.forEach(function(d) {
-	d.dtg = d.dtg;
+	d.dateTime = d.dateTime;
 //	d.temperature = +d.temperature;
-	d.temperature = +d.temperature*(9/5)+32;
+	d.TValue = d.TValue*(9/5)+32;
 });
 
 // Scale the range of the data
-x.domain(d3.extent(data, function(d) { return d.dtg; }));
-//y.domain([70, d3.max(data, function(d) { return d.temperature; })]);
-y.domain([d3.min(data, function(d) { return d.temperature; })-2, d3.max(data, function(d) { return d.temperature; })]);
+x.domain(d3.extent(data, function(d) { return d.dateTime; }));
+//y.domain([70, d3.max(data, function(d) { return d.TValue; })]);
+y.domain([d3.min(data, function(d) { return d.TValue; })-2, d3.max(data, function(d) { return d.temperature; })]);
 
 // Add the valueline path.
 svg.append("path")
@@ -131,8 +131,10 @@ svg.append("g")
 	.call(yAxis);
 
 </script>
+
 <center><h3 id="lastTemp"> </h3></center>
+
 <script>
-    document.getElementById("lastTemp").innerHTML = "Last temp " + data[0].temperature + " at " + data[0].dtg;
+    document.getElementById("lastTemp").innerHTML = "Last temp " + data[0].TValue + " at " + data[0].dateTime;
 </script>
 </body>

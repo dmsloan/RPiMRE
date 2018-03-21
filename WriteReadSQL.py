@@ -3,7 +3,7 @@
 import os
 import time
 import datetime
-import MySQLdb
+import MySQLdb as mdb
 
 global c
 global db
@@ -19,17 +19,17 @@ def insert_to_db():
     print (temperatur + " - " + zeit + " - " + datum)
     sql =  "INSERT INTO TAB_CPU (TValue, T_Date, T_Time) VALUES (%s, %s, %s)" 
     try:
-        c.execute(sql,( str(temperatur) , str(datum), str(zeit)))
-        db.commit()
+        cur.execute(sql,( str(temperatur) , str(datum), str(zeit)))
+        con.commit()
     except:
-        db.rollback()
-    #db.close()
+        con.rollback()
+    #con.close()
 
 def read_from_db():
     try:
-        #c.execute("SELECT * FROM TAB_CPU WHERE ID = (SELCET MAX(ID) FROM TAB_CPU)")
-        c.execute("SELECT * FROM TAB_CPU ORDER BY ID DESC LIMIT 1")      
-        result = c.fetchall()
+        #cur.execute("SELECT * FROM TAB_CPU WHERE ID = (SELCET MAX(ID) FROM TAB_CPU)")
+        cur.execute("SELECT * FROM TAB_CPU ORDER BY ID DESC LIMIT 1")      
+        result = cur.fetchall()
         if result is not None:
              print ('CPU temperature: ' , result[0][1], '| time: ' , result[0][3], ' | datum: ' , result[0][2])
     except:
@@ -44,8 +44,8 @@ def main():
         
 if __name__ == '__main__':
     try:
-        db = MySQLdb.connect('localhost', 'root', 'raspberry', 'db_cpu')
-        c= db.cursor()
+        con = mdb.connect('localhost', 'root', 'raspberry', 'db_cpu')
+        cur = con.cursor()
     except:
         print ("Failed to connect to server...")
         exit()
