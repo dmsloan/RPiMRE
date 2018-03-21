@@ -1,7 +1,7 @@
 <?php
 
 $hostname = 'Pi2WebServer4G';
-$username = 'root';
+$username = 'pi_select';
 $password = 'raspberry';
 $database = 'db_cpu';
 
