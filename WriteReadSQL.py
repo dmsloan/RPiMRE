@@ -44,7 +44,7 @@ def main():
         
 if __name__ == '__main__':
     try:
-        db = MySQLdb.connect('localhost', 'root', 'raspberry', 'db_cpu');
+        db = MySQLdb.connect('localhost', 'root', 'raspberry', 'db_cpu')
         c= db.cursor()
     except:
         print ("Failed to connect to server...")
