@@ -9,9 +9,9 @@ import MySQLdb as mdb
 def insertDB(system_load, ram, disk, temperature):
 
   try:
-    con = mdb.connect('localhost',
+    con = mdb.connect('Pi2WebServer4G',
                       'pi_insert',
-                      'xxxxxxxxxx',
+                      'raspberry',
                       'measurements');
     cursor = con.cursor()
 

@@ -1,8 +1,8 @@
 <?php
 
-$hostname = 'localhost';
+$hostname = 'Pi2WebServer4G';
 $username = 'pi_select';
-$password = 'xxxxxxxxxx';
+$password = 'raspberry';
 
 try {
     $dbh = new PDO("mysql:host=$hostname;dbname=measurements",
