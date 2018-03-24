@@ -3,9 +3,10 @@
 $hostname = 'Pi2WebServer4G';
 $username = 'pi_select';
 $password = 'raspberry';
+$database = 'measurements';
 
 try {
-    $dbh = new PDO("mysql:host=$hostname;dbname=measurements",
+    $dbh = new PDO("mysql:host=$hostname;dbname=$database",
                                $username, $password);
 
     /*** The SQL SELECT statement ***/

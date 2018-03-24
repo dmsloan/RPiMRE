@@ -50,7 +50,7 @@ def get_ram():
 # Returns the percentage used disk space on the /dev/root partition
 def get_disk():
     try:
-        s = subprocess.check_output(["df","/dev/root"])
+        s = subprocess.check_output(["df","/"])
         lines = s.split("\n")
         return int(lines[1].split("%")[0].split()[4])
     except:
