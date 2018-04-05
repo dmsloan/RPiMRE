@@ -1,0 +1,18 @@
+The /dev/serial by-id and by-path names vary depending on which pi the adaptor is plugged into.
+
+the usb to serial adaptor presents itself on the raspberry pi as /dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller_D-if00-port0
+and as /dev/serial/by-path/platform-3f980000.usb-usb-0:1.5:1.0-port0
+
+it also pops up as /dev/ttyUSB0
+
+entering "stty -F /dev/ttyUSB0" shows if the device is plugged in and operating properly as well as the speed.
+
+entering "echo hello > /dev/ttyUSB0" should write hello to the usb port and make the led flash.
+
+entering "ls > /dev/ttyUSB0" should write the output of the ls command to the usb port. It should make the led stay on for a few seconds.
+
+typing "cat ttyUSB0" echos data from the serial port to the screen.
+
+typing "cat /dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller_D-if00-port0" also echos data from the serial port to the screen.
+
+typing "/dev/serial/by-path/platform-3f980000.usb-usb-0:1.5:1.0-port0" echos data from the serial port to the screen.
