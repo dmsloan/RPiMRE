@@ -16,3 +16,25 @@ typing "cat ttyUSB0" echos data from the serial port to the screen.
 typing "cat /dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller_D-if00-port0" also echos data from the serial port to the screen.
 
 typing "/dev/serial/by-path/platform-3f980000.usb-usb-0:1.5:1.0-port0" echos data from the serial port to the screen.
+
+typing "/dev/serial/by-path/platform-3f980000.usb-usb-0:1.5:1.0-port0 >> wind.txt" redirects the standard output, screen. and appends the data from the serial port to the file wind.txt.
+
+
+After having opened my serial port /dev/tty/USB0with pyserial:
+
+>>> ser = serial.Serial("/dev/ttyUSB0", 57600)
+>>> ser.isOpen()
+True
+>>> ser.close()
+>>> ser.isOpen()
+False
+I can no longer read /dev/ttyUSB0with the command cat /dev/ttyUSB0
+usually cat /dev/ttyUSB0 is a blocking command like read, but after the serial port is opened/closed with pyserial, the cat command become non blocking, seems like busy ...
+
+Does anybody knows what causes this?
+
+
+When pyserial opens the tty, it implicitly reconfigure some parameters of the tty for example: time=0 which set the timeout to 0 second, and  min=0, which set the minimum characters to read, etc.
+
+And to restore the default behavior, use the linux command stty
+stty -F /dev/ttyUSB0 icanon
