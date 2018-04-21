@@ -5,14 +5,16 @@ import subprocess
 import os
 import MySQLdb as mdb
 
+host = "Pi2WebServer4G"
+user = "pi_insert"
+password = "raspberry"
+database = "measurements"
+
 # Function for storing readings into MySQL
 def insertDB(system_load, ram, disk, temperature):
 
   try:
-    con = mdb.connect('Pi2WebServer4G',
-                      'pi_insert',
-                      'raspberry',
-                      'measurements');
+    con = mdb.connect(host, user, password, database);
     cursor = con.cursor()
 
     sql = "INSERT INTO system_info(`load`,`ram`,`disk`,`temperature`) \
