@@ -1,6 +1,6 @@
 <?php
 
-$hostname = 'Pi2WebServer4G';
+$hostname = 'Pi3WebServer4G';
 $username = 'pi_select';
 $password = 'raspberry';
 
