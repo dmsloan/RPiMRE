@@ -131,6 +131,7 @@ svg.append("g")
 </script>
 <center><h3 id="lastTemp"> </h3></center>
 <script>
-    document.getElementById("lastTemp").innerHTML = "Last temp " + data[0].temperature + " at " + data[0].dtg;
+$lTemp = (Math.round(data[0].temperature*10))/10
+        document.getElementById("lastTemp").innerHTML = "Last temp " + $lTemp + " at " + data[0].dtg;
 </script>
 </body>
