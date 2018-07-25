@@ -5,7 +5,7 @@ import subprocess
 import os
 import MySQLdb as mdb
 
-host = "Pi2WebServer4G"
+host = "Pi3WebServer4G"
 user = "pi_insert"
 password = "raspberry"
 database = "measurements"
