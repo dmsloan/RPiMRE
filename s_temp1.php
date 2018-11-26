@@ -114,8 +114,8 @@ var svg = d3.select("body")
 <?php echo "data=".$json_data.";" ?>
 data.forEach(function(d) {
 	d.dtg = parseDate(d.dtg);
-//	d.temperature = +d.temperature;
-	d.temperature = +d.temperature*(9/5)+32;
+ 	d.temperature = +d.temperature/100; // data is stored in database as a int. divide by 100 to place the decimal properly
+//	d.temperature = +d.temperature*(9/5)+32; // this is used when the data is stored in C
 });
 
 // Scale the range of the data
@@ -143,7 +143,7 @@ svg.append("g")
 var width = 80,
     height = 180,
     maxTemp = 100,
-    minTemp = 0,
+    minTemp = 70,
     currentTemp = (Math.round(data[0].temperature*10))/10
 ;
 
