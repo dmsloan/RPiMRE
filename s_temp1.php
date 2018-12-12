@@ -1,6 +1,6 @@
 <?php
 
-$hostname  = 'Pi3WebServer4G';
+$hostname  = 'LinuxMint';
 $username  = 'pi_select';
 $password  = 'raspberry';
 $database = 'measurements';
@@ -12,7 +12,7 @@ try {
     /*** The SQL SELECT statement ***/
     $sth = $dbh->prepare("
        SELECT  `dtg`, `temperature`
-       FROM  `temperature`
+       FROM  `pressure`
        ORDER BY `dtg` DESC
        LIMIT 0,8000
     ");
