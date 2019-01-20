@@ -1,13 +1,12 @@
 <?php
-
-$hostname  = 'LinuxMint';
+$hostname  = '192.168.0.85'; /* 'LinuxMint' used to work but not at the moment*/
 $username  = 'pi_select';
 $password  = 'raspberry';
 $database = 'measurements';
 
 try {
-    $dbh = new PDO("mysql:host=$hostname;dbname=$database", 
-                               $username, $password);
+    $dbh = new PDO("mysql:host=$hostname;dbname=$database",
+		 $username, $password);
 
     /*** The SQL SELECT statement ***/
     $sth = $dbh->prepare("
