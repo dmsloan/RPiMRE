@@ -1,6 +1,6 @@
 <?php
 
-$hostname  = 'LinuxMint';
+$hostname  = '192.168.0.85'; /*'LinuxMint' used to work but not at the moment*/
 $username  = 'pi_select';
 $password  = 'raspberry';
 $database = 'measurements';
@@ -11,7 +11,10 @@ try {
 
     /*** The SQL SELECT statement ***/
     $sth = $dbh->prepare("
-    SELECT LEFT(TIMESTAMP(LEFT(`dtg`,16)), 19) AS dtg, ROUND(AVG(`temperature`/100),1) AS temperature
+    SELECT LEFT(TIMESTAMP(LEFT(`dtg`,16)), 19) AS dtg,
+      ROUND(AVG(`temperature`/100),1) AS temperature,
+	    ROUND(AVG(`pressure`/100),2) AS pressure,
+      ROUND(AVG(`humidity`/10),1) AS humidity
     FROM `pressure` GROUP BY LEFT(`dtg`,16)
     ORDER BY `dtg` DESC
     LIMIT 0,800
