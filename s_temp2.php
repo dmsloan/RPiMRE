@@ -1,6 +1,6 @@
 <?php
 
-$hostname  = '192.168.0.85'; /*'LinuxMint' used to work but not at the moment*/
+$hostname  = '192.168.1.85'; /*'LinuxMint' used to work but not at the moment*/
 $username  = 'pi_select';
 $password  = 'raspberry';
 $database = 'measurements';
@@ -38,6 +38,7 @@ $json_data = json_encode($result);
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <meta charset="utf-8">
 <style> /* set the CSS */
 

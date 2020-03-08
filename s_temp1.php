@@ -1,5 +1,5 @@
 <?php
-$hostname  = '192.168.0.85'; /* 'LinuxMint' used to work but not at the moment*/
+$hostname  = '192.168.1.85'; /* 'LinuxMint' used to work but not at the moment*/
 $username  = 'pi_select';
 $password  = 'raspberry';
 $database = 'measurements';
@@ -11,7 +11,7 @@ try {
     /*** The SQL SELECT statement ***/
     $sth = $dbh->prepare("
        SELECT  `dtg`, `temperature`
-       FROM  `pressure`
+       FROM  `temperature`
        ORDER BY `dtg` DESC
        LIMIT 0,8000
     ");
@@ -34,6 +34,7 @@ $json_data = json_encode($result);
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <meta charset="utf-8">
 <style> /* set the CSS */
 
@@ -60,6 +61,7 @@ path {
 <body>
 
 <center><h1> Home office temperature</h1></center>
+<center><h1> From the Raspberry PI</h1></center>
 
 <!-- Beginning of thermometer -->
 <h2>Thermometer</h2>
